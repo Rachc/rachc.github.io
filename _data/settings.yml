@@ -1,0 +1,39 @@
+#-------------------------------
+# General Site Settings
+title: RACHC
+# logo: logo.svg # You can add own logo.
+description: Site pessoal de Rachel Curioso, programadora backend que costuma a brincar com Ruby, Rails, Kotlin e Java. A idéia é que esse site seja um blog de tecnologia, onde eu coloco todos os meus aprendizados.
+
+#-------------------------------
+# Author Settings
+author:
+  name: Rachel Curioso
+  image: rach.jpg
+  say-hello: Olá, sou <strong>Rachel Curioso</strong>
+  bio: Site pessoal de <strong>Rachel Curioso</strong>, Programadora Backend que costuma a brincar com Ruby, Rails, Kotlin e java. A idéia é que esse site seja um blog de <strong>tecnologia</strong>, onde eu coloco todos os <strong>meus aprendizados</strong>
+
+#-------------------------------
+# Contact links
+github: https://github.com/rachc
+twitter: https://twitter.com/_rchc # Add your Twitter handle
+linkedin: https://www.linkedin.com/in/rachc
+
+#-------------------------------
+# Comment Section (Disqus)
+disqus-identifier: rachc # add your shortname for Disqus Comment. For example mr-brown
+
+
+#-------------------------------
+# Instagram Feed
+instafeed: true # To enable the instafeed, use the value true. To turn off use the value false.
+instagram-profile: rachelcurioso # Add instagram username
+
+
+#-------------------------------
+# Google Analytics
+google-analytics: UA-148485987-1 # Add your identifier. For example UA-99631805-1.
+
+
+#-------------------------------
+# Newsletter
+mailchimp: gmail.us20.list-manage.com/subscribe/post?u=ccae5416b374ef56349d97d40&amp;id=d243065886 # Add your MailChimp form identifier. For example - blogenjoyfreedom.us16.list-manage.com/subscribe/post?u=cd56155d76ddeeb4c0bc4d080&amp;id=7a526cd13e

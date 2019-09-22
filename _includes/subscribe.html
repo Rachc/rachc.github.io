@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="subscribe">
+    <h3 class="subscribe__title">Cadastre</h3>
+    <p class="subscribe__subtitle">Receba todos os ultimos posts no seu e-mail (: </p>
+    <form class="subscribe-form validate" action="{% if site.data.settings.mailchimp %}//{{site.data.settings.mailchimp}}{% else %}#{% endif %}"
+      method="POST" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+      <div class="subscribe-group">
+        <label class="screen-reader-text" for="mce-EMAIL">Email address</label>
+        <input class="subscribe__email required email" id="mce-EMAIL" type="text" name="EMAIL"
+          placeholder="Digite seu email...">
+      </div>
+      <input class="subscribe__button" id="mc-embedded-subscribe" type="submit" name="subscribe" value="Cadastre-se">
+    </form>
+  </div>
+</div>
