@@ -2,7 +2,7 @@
 layout: page
 title: Sobre
 permalink: /about/
-image: rach.jpg
+image: rach01.jpg
 ---
 
 Olá, eu sou **Rachel Curioso** e quando não estou programando, estou lendo alguma ficção (embora esse ultimo ano esteja um pouco fraco de leitura).
