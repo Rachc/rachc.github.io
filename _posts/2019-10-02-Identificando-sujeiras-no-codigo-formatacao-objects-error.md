@@ -30,7 +30,7 @@ Quando o assunto é formatação, não olhamos apenas a indentação, mas també
 Podemos dividir o tópico `formatação` em duas partes: Formatação vertical e formatação horizontal
 
 ## Formatação vertical
-Uma matéria de jornal começa com um bom headline, que informe ao leitor do que aquela matéria se trata. O primeiro parágrafo é o equivalente a uma sinopse, que você consegue ter uma idéia do tom da matéria, e a medida que você lê, vai descobrindo mais detalhes.
+Uma matéria de jornal começa com um bom headline que informe ao leitor do que aquela matéria se trata. O primeiro parágrafo é o equivalente a uma sinopse, que você consegue ter uma idéia do tom da matéria, e a medida que você lê, vai descobrindo mais detalhes.
 
 Um bom código deve ser assim também. O nome do módulo deve ser claro para que as pessoas saibam do que ele se trata, logo depois vem conceitos de mais alto nível juntamente com algoritmos, e a medida que o código vai se desenrolando, devem vir funções mais baixo nível com detalhes do código fonte.
 
@@ -84,9 +84,9 @@ Outra boa prática é agrupar coisas que não queremos separar, e não separar n
 
 Na expressão `def algo(argumento)` nós queremos que `algo`e `(argumento)` fiquem juntos, pois são a mesma coisa. Se colocarmos um espaço entre eles, `def algo (argumento)`, passamos uma idéia que são coisas distintas.
 
-Já em `int algo = outro_algo` nós estamos falando que `algo`e `outro_algo` são coisas distintas, e quando fazemos `int algo=outro_algo`, perdemos um pouco dessa distinção.
+Já em `int algo = outro_algo` nós estamos falando que `algo`e `outro_algo` são coisas distintas, e quando escrevemos `int algo=outro_algo`, perdemos um pouco dessa distinção.
 
-Outra coisa importante a destacar sobre alinhamento horizontal é como alinhamos nossas variáveis.
+Outra coisa importante a destacar sobre formatação horizontal é como alinhamos nossas variáveis.
 
 As vezes sentimos necessidade de alinhar:
 ```java
@@ -103,8 +103,8 @@ private long          requestedProgress;
 Porém temos três problemas quando fazemos isso.
 
 1. Tiramos a atenção do que importa. No exemplo acima, acabamos não olhando para o tipo da variável. Apenas para o seu nome.
-2. Geralmente se usamos ferramentas do editor para formatar o código, ele arranca esses espaços, e perdemos tudo.
-3. Se percebemos que precisamos alinhar as variáveis, é porque temos variáveis demais e, provavelmente, temos que dividir o que estamos fazendo em mais pedaços.
+2. Geralmente se usamos ferramentas do editor para formatar o código, ele arranca esses espaços, e perdemos nossa formatação.
+3. Se percebemos que precisamos alinhar as variáveis, é porque temos variáveis demais e, provavelmente, conseguimos dividir o que estamos fazendo em mais pedaços.
 
 Assim a forma mais indicada de alinhar as variáveis é:
 
@@ -128,7 +128,7 @@ Se gostamos de variáveis privadas, porque sempre colocamos getters e setters? C
 ## Abstração de dados
 Quando usamos um método ou uma classe, não precisamos saber como eles são implementados. O que nos interessa são seus retornos.
 
-Nos exemplos abaixo vimos a diferença entre uma classe com variáveis públicas, e uma interface com várias políticas de acesso.
+Nos exemplos abaixo conseguimos ver a diferença entre uma classe com variáveis públicas, e uma interface com várias políticas de acesso.
 
 ```java
 public class Point(){
@@ -149,14 +149,14 @@ public interface Point(){
 ```
 Repare que no segundo exemplo, nós não temos nenhum método do tipo `setX` ou `setY`. Se quisermos criar um ponto, precisamos passar ambos como uma dupla, usando `setCartesian`.
 
-O primeiro exemplo nos força a lidar com cada variável separadamente, mesmo elas sendo uma dupla
+O primeiro exemplo nos força a lidar com cada variável separadamente, mesmo elas sendo uma dupla.
 
 Ocultar implementação não é apenas uma questão de esconder variáveis, é uma questão de abstração. Uma classe não é apenas um emaranhado de getters e Setters. Elas manipulam dados, e essa deveria ser sua essência.
 
 ## Estrutura de dados ou Objetos?
-Objetos se escondem por trás de abstrações, e suas funções públicas servem para manipular os seus dados.
+Objetos escondem-se por trás de abstrações, e suas funções públicas servem para manipular os seus dados.
 
-Enquanto em uma estrutura de dados, tudo é exposto.
+Em contrapartida, em uma estrutura de dados, tudo é exposto.
 
 ```ruby
 class Square < Shape
@@ -184,9 +184,9 @@ end
 
 No exemplo acima nós temos uma estrutura de dados com o seguinte problema:
 
-Qualquer nova `forma` que quisermos criar, é preciso ir na classe `Geometry` e adicionar mais um `if` na função `area`.
+Qualquer nova `shape` que quisermos criar, é preciso ir na classe `Geometry` e adicionar mais um `if` na função `area`.
 
-Nesse caso em específico, poderíamos nos valer de herança para implementar a função área em cada objeto, e não na classe `Geometry`.
+Nesse caso em específico, poderíamos nos valer de herança para implementar a função `area` em cada objeto, e não na classe `Geometry`.
 
 Em Orientação a Objeto, é fácil criar novas classes sem modificar funções diferentes, mas por outro lado, em POO é difícil adicionar novas funções, pois isso impacta todas as classes filhas.
 
@@ -215,7 +215,7 @@ final String outputDir = stracthDir.getAbsolutePath();
 
 Porém, devemos nos atentar que se o exemplo acima fosse uma estrutura de dados, não seria um problema, ex: `first_name = full_name.to_downcase.split(" ").first`.
 
-O primeiro exemplo dado, temos um problema de acesso de informação. Esse caso viola a lei de Demeter. Já no exemplo acima, estamos transformando essa informação, o que não há problema.
+O primeiro exemplo dado, temos um problema de acesso de informação, e isso viola a lei de Demeter. Já no exemplo acima, estamos transformando essa informação, e não há nenhum problema nisso.
 
 ## Transferência de dados
 Quando falamos em transferência de dados, estamos nos referindo a objetos que possuem apenas variáveis, mas nenhum método.
@@ -245,14 +245,14 @@ public class Person{
 ```
 
 ## Active Record
-Active record funciona como traduções diretas do banco de dados. Geralmente são Objetos de Transferência de Dados, com alguns métodos navegacionais como `save` ou `find`.
+Active record funciona como traduções diretas do banco de dados. Geralmente são `Objetos de Transferência de Dados`, com alguns métodos navegacionais como `save` ou `find`.
 
 Acontece que, quando tentamos adicionar regras de negócio e deixá-lo mais robusto, acabamos por criar uma estrutura híbrida , meio objeto, meio estrutura de dados que, como vimos acima, é sempre ruim.
 
 A solução para esse problema seria tratar o Active Record como uma estrutura de dados, e criar objetos separados que possuam regras de negócio e outros dado internos.
 
 # Lidando com erros
-![Gif de várias popul de erro, escrito "fail", em uma tela do windows]({{ site.baseurl }}/images/cleancode13.gif)
+![Gif de várias popup de erro, escrito "fail", em uma tela do windows]({{ site.baseurl }}/images/cleancode13.gif)
 *Faaaail*
 
 Lidar com erro é importante, mas quando o tratamento de erro deixa a lógica obscura e confusa, ele está sendo feito de forma errada.
@@ -275,14 +275,14 @@ Escrevendo o `try-catch` primeiro, ajuda a deixá-lo independente.
 
 Quando usamos um código de terceiros, o ideal não tratar os erros dele direto no seu código.
 
-O ideal é encapsular essa lib em uma classe só pra ela, e tratar os erros lá dentro
+O ideal é encapsular essa lib em uma classe só pra ela, e tratar os erros lá dentro.
 
 ## Null/Nil
-Quando trabalhamos com null no nosso código, criamos um problema difícil de debugar.
+Quando trabalhamos com `null` no nosso código, criamos um problema difícil de debugar.
 
 Quando alguma coisa dá errada, ele solta uma exceção genérica, nos informando que algo de errado não está certo. Essa exceção é tão genérica, que encontrar sua raiz é bem difícil.
 
-As vezes precisamos verificar se algo não existe e ficamos tentado a verificar se `algo == null`.Nesse caso, procure saber se não existem outras formas de verificação. Dificilmente você não vai conseguir fazer essa troca.
+As vezes precisamos verificar se algo não existe e ficamos tentado a verificar se `algo == null`.Nesse caso, procure saber se não existem outras formas de verificação. Provavelmente existem.
 
 Se for uma lista, podemos verificar se a lista está vazia, se for uma String, conseguimos verificar se ela está em branco e por ai vai.
 
