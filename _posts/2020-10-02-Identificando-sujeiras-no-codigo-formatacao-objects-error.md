@@ -5,33 +5,42 @@ date:   2019-09-28 20:20:00 +0300
 image:  cleancode10.jpg
 tags:   Clean-Code
 ---
-Esse post é o segundo de uma série de 3 sobre clean code.
+Esse post é o segundo de uma série de 3 postagens sobre **[clean code](https://www.amazon.com.br/gp/product/8576082675/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=8576082675&linkCode=as2&tag=rachc-20&linkId=0d5e2c3e67461b310960dc69f64f1d9c)**.
 
-Hoje falaremos sobre formatação de código, objeto e estrutura de dados e como lidar com erros.
+Aqui falaremos sobre formatação de código, objeto e estrutura de dados, e como lidar com erros.
 
-Sei que algumas dessas coisas podem parecer bobas, mas em formatação eu falo, entre outras coisas, sobre como ordenar suas funções em um arquivo. Quando falo sobre objetos e estrutura de dados, falo sobre como proteger as entrenhas do seu objeto. E sobre erros, falo um pouco sobre proteger seu código para que ele esteja preparado para lidar com erros quando eles acontecerem.
+Sei que algumas dessas coisas podem parecer bobas, mas muita coisa interessante é discutida dentro desses tópicos.
 
-[No primeiro post]({{ site.baseurl }}/2019/09/28/Identificando-sujeiras-no-codigo-nomes-funcoes-e-comentarios/) falei um pouco sobre nomes, funções e comentários. Aconselho a dar uma lida (: (Ou não! Você não é obrigado! Rebele-se!)
+Em formatação eu falo, dentre outras coisas, sobre como **ordenar suas funções e variáveis**. Quando falo sobre objetos e estrutura de dados, falo sobre como **proteger as entranhas do seu objeto**. E sobre erros, falo um pouco sobre **preparar seu código para lidar com problemas** quando eles acontecerem.
 
-A idéia é terminar a série no próximo post, em que falarei sobre como trabalhar com código de terceiros, também como organizar seus teses unitários e, por fim, como organizar melhor suas classes.
+[No primeiro post]({{ site.baseurl }}/2019/09/28/Identificando-sujeiras-no-codigo-nomes-funcoes-e-comentarios/) falei um pouco sobre **nomes, funções e comentários**. Aconselho a dar uma lida (: (Ou não! Você não é obrigado! Rebele-se!)
+
+A intenção é finalizar a série no próximo post, falando sobre como trabalhar com código de terceiros, também como organizar seus testes unitários e, por fim, como organizar melhor suas classes.
 
 Vamos lá!
 
 # Formatação
-Quando olhamos para um código que não esta bem formatado, a primeira impressão que temos, é que o código não está muito bom, e acabamos levando menos a sério do que deveriamos. Nós olhamos não apenas a identação, mas também como os blocos de código estão organizados.
+![Trecho do vídeo "formation" da Beyoncé]({{ site.baseurl }}/images/cleancode11.gif)
+*Formation*
 
-Quando falamos em formatação de código, conseguimos dividir o assunto em duas partes: Formatação vertical e formatação Horizontal
+Ao olhar para um código que não está bem formatado, a primeira impressão que temos, é que todo o código não está muito bom, e acabamos não o levando a sério.
 
-## Vertical
+Quando o assunto é formatação, não olhamos apenas a indentação, mas também como os blocos de código estão organizados.
+
+Podemos dividir o tópico `formatação` em duas partes: Formatação vertical e formatação horizontal
+
+## Formatação vertical
 Uma matéria de jornal começa com um bom headline, que informe ao leitor do que aquela matéria se trata. O primeiro parágrafo é o equivalente a uma sinopse, que você consegue ter uma idéia do tom da matéria, e a medida que você lê, vai descobrindo mais detalhes.
 
-Um bom código deve ser assim também. O nome do módulo deve ser claro para que as pessoas saibam do que ele se trata, logo depois vem os conceitos mais high-level e algoritmos, e a medida que vai passando o código, deve vir funções mais low level e detalhes do código fonte.
+Um bom código deve ser assim também. O nome do módulo deve ser claro para que as pessoas saibam do que ele se trata, logo depois vem conceitos de mais alto nível juntamente com algoritmos, e a medida que o código vai se desenrolando, devem vir funções mais baixo nível com detalhes do código fonte.
 
 O ideal é que o código seja dividido em módulos, com um espaço entre cada módulo, e eles devem seguir uma ordem, para que o código conte uma história.
 
-Primeiro deverão ser declaradas as variáveis e depois as funções dependentes. é aconselhável que funções que tenham uma afinidade conceitual fiquem agrupadas:
+Primeiro deverão ser declaradas as variáveis e depois as funções dependentes. A única coisa que deve burlar essa ordem, são funções que tenham uma afinidade conceitual.
 
-(Gente, foca na ordem!)
+No exemplo abaixo, consigo mostrar a ordem que as coisas deveriam ser chamadas, e quando falo em funções que possuam afinidade conceitual, falo de `is_chocolate?` e `is_not_chocolate?`
+
+(Gente, foca na ordem que as funções aparecem e não nos nomes)
 
 ```ruby
 something
@@ -42,44 +51,44 @@ def ice_cream
   cheese(something_2)
 end
 
-def banana(something_1)
-  is_chocolate?(something_1)
-  avocado(something_1)
+def banana(something_3)
+  return "something" if is_chocolate?(something_3)
+  avocado(something_3)
 end
 
-def is_chocolate?(something_1)
-  something_1
+def is_chocolate?(something_4)
+  #algum código
 end
 
-def is_not_chocolate?(something_1)
-  something_10
+def is_not_chocolate?(something_4)
+  #Outro código
 end
 
-def avocado(something_1)
-  self.something = something_1
+def avocado(something_5)
+  #Mais um cósdigo
 end
 
-def cheese(something_2)
-  self.somewhere = something_2
+def cheese(something_6)
+  #mais outro código
 end
 ```
 
-Sobre ordem que as variáveis são incluidas no código, é importante lembrar que as variáveis de controle de loop são declaradas dentro de um loop.
+Ainda falando sobre ordem que as coisas aparecem no código, vale lembrar que variáveis de controle de loop são declaradas dentro do próprio loop:
 
 `for(var i = 0; i > something; i++)`
 
 ## Horizontal
-É interessante evitar linhas muito compdidas de código. Algumas pessoas gostam de usar um limite de 80 caracteres, outras de 100 e está tudo bem mas, mais de 120 caracteres pode ser sinal de descuido.
+É uma boa prática evitar linhas de código muito compridas. Algumas pessoas gostam de usar um limite de 80 caracteres, outras de 100 e está tudo bem, porém mais de 120 caracteres pode ser sinal de descuido.
 
-É interessante agrupar coisas que não queremos separar, e não usar espaço nas coisas que queremos agrupar. Parece óbvio falar assim, mas as vezes isso não acontece na prática.
+Outra boa prática é agrupar coisas que não queremos separar, e não separar nas coisas que queremos agrupar. Parece óbvio falar assim, mas as vezes não é isso que acontece na prática:
 
-Na expressão `def algo(argumento)` nós queremos que `algo`e `(argumento)` fiquem juntos, pois são a mesma coisa. `def algo (argumento)` passa uma idéia que são coisas distintas
+Na expressão `def algo(argumento)` nós queremos que `algo`e `(argumento)` fiquem juntos, pois são a mesma coisa. Se colocarmos um espaço entre eles, `def algo (argumento)`, passamos uma idéia que são coisas distintas.
 
 Já em `int algo = outro_algo` nós estamos falando que `algo`e `outro_algo` são coisas distintas, e quando fazemos `int algo=outro_algo`, perdemos um pouco dessa distinção.
 
-Outra coisa importante a destacar sobre alinhamento horizontal é como alinhamos as coisas.
+Outra coisa importante a destacar sobre alinhamento horizontal é como alinhamos nossas variáveis.
 
-As vezes sentimos necessidade de alinhar as coisas
+As vezes sentimos necessidade de alinhar:
 ```java
 private Socket        socket;
 private InputStream   input;
@@ -93,11 +102,11 @@ private long          requestedProgress;
 
 Porém temos três problemas quando fazemos isso.
 
-1. tiramos a atenção do que importa. No exemplo acima, acabamos não olhando para o tipo da variável. Apenas para o seu nome
+1. Tiramos a atenção do que importa. No exemplo acima, acabamos não olhando para o tipo da variável. Apenas para o seu nome.
 2. Geralmente se usamos ferramentas do editor para formatar o código, ele arranca esses espaços, e perdemos tudo.
-3. Bonus e o mais importante: Se a gente percebe que precisamos alinhar as variáveis, é porque temos variáveis demais e, provavelmente, temos que dividir o que estamos fazendo em mais pedaços.
+3. Se percebemos que precisamos alinhar as variáveis, é porque temos variáveis demais e, provavelmente, temos que dividir o que estamos fazendo em mais pedaços.
 
-Assim é a forma mais indicada de alinhar as variáveis
+Assim a forma mais indicada de alinhar as variáveis é:
 
 ```java
 private Socket socket;
@@ -111,12 +120,15 @@ private long requestedProgress;
 ```
 
 # Objetos e estrutura de dados
-Gostamos de variáveis privadas, porque não queremos ninguém dependendo dessas variáveis. Então porque sempre colocamos getters e setters se as variáveis são privadas?
+![Gif da Miss Piggy, dos muppets, forçando as barras de uma prisão para sair]({{ site.baseurl }}/images/cleancode12.gif)
+*Vamos lidar melhor com esses acessos*
+
+Se gostamos de variáveis privadas, porque sempre colocamos getters e setters? Como lidar com o acesso às nossas classes?
 
 ## Abstração de dados
-é desnecessário saber como os métodos são implementados.
+Quando usamos um método ou uma classe, não precisamos saber como eles são implementados. O que nos interessa são seus retornos.
 
-Nos exemplos abaixo vimos a diferença entre uma classe com variáveis públicas, e uma interface com várias políticas de acesso
+Nos exemplos abaixo vimos a diferença entre uma classe com variáveis públicas, e uma interface com várias políticas de acesso.
 
 ```java
 public class Point(){
@@ -124,6 +136,7 @@ public class Point(){
   public double y;
 }
 ```
+Segundo exemplo:
 ```java
 public interface Point(){
   double getX();
@@ -134,14 +147,14 @@ public interface Point(){
   void setPolar(double r, double theta);
 }
 ```
-Repare que no segundo exemplo, nós não temos nenhum método do tipo `setX` ou `setY`. Se eu quisermos criar um ponto, preciso passar ambos como uma dupla, usando `setCartesian`.
+Repare que no segundo exemplo, nós não temos nenhum método do tipo `setX` ou `setY`. Se quisermos criar um ponto, precisamos passar ambos como uma dupla, usando `setCartesian`.
 
-O primeiro nos força a lidar com cada variável separadamente, mesmo elas sendo uma dupla
+O primeiro exemplo nos força a lidar com cada variável separadamente, mesmo elas sendo uma dupla
 
-Ocultar implementação não é apenas uma questão de esconder variáveis, é uma questão de abstração. Uma classe não é apenas um emaranhado de getters e Setters. Elas manipulam dados, e essa deveria ser sua escência.
+Ocultar implementação não é apenas uma questão de esconder variáveis, é uma questão de abstração. Uma classe não é apenas um emaranhado de getters e Setters. Elas manipulam dados, e essa deveria ser sua essência.
 
 ## Estrutura de dados ou Objetos?
-Objetos se escondem por trás de abstrações e suas funções públicas servem para manipular os seus dados.
+Objetos se escondem por trás de abstrações, e suas funções públicas servem para manipular os seus dados.
 
 Enquanto em uma estrutura de dados, tudo é exposto.
 
@@ -171,18 +184,18 @@ end
 
 No exemplo acima nós temos uma estrutura de dados com o seguinte problema:
 
-Em que qualquer nova forma que quisermos criar, precisamos ir na classe "Geometria" e adicionar mais um `if` na definição da área.
+Qualquer nova `forma` que quisermos criar, é preciso ir na classe `Geometry` e adicionar mais um `if` na função `area`.
 
-Nesse caso em específico, poderiamos nos valer de herança para implementar a função área em cada objeto, e não na classe `Geometry`
+Nesse caso em específico, poderíamos nos valer de herança para implementar a função área em cada objeto, e não na classe `Geometry`.
 
 Em Orientação a Objeto, é fácil criar novas classes sem modificar funções diferentes, mas por outro lado, em POO é difícil adicionar novas funções, pois isso impacta todas as classes filhas.
 
 Ocasionalmente, é mais importante adicionar novas funções do que criar classes filhas. Nesses casos, não tenha medo de usar código procedural.
 
-O importante é não misturar estrutura de dados com objetos, porque nesse caso nós teriamos o pior dos dois mundos. O resultado disso são estruturas dificeis de criar novas classes, e difíceis de modificar funções existentes.
+O importante é não misturar estrutura de dados com objetos, porque nesse caso nós teríamos o pior dos dois mundos. O resultado disso são estruturas de difícil herança, e difíceis de modificar funções existentes.
 
 ## A Lei de Demeter
-A lei de Demeter fala que um módulo não deve saber as entranhas do módulo que ele manipula. 
+A lei de Demeter fala que um módulo não deve saber as entranhas do módulo que ele manipula.
 
 Um método não deve invocar métodos ou objetos de outra classe.
 
@@ -190,9 +203,9 @@ Olhando o exemplo abaixo:
 ```java
 final String outputDir = ctxt.getOptions().getScratchDir().getAbsolutePath();
 ```
-se `ctxt` fosse um objeto, pra acessar o `getAbsolutePath()`, eu teria que passar por vários métodos desse objeto, pra conseguir um retorno. Então, para o `getAbsolutePath() `funcionar, ele iria precisar do retorno do `getStracthDir()`, que por sua vez iria precisar do retorno de `getOptions()` para funcionar.
+se `ctxt` fosse um objeto, para acessar o `getAbsolutePath()` ele iria precisar do retorno do `getStracthDir()`, que por sua vez iria precisar do retorno de `getOptions()` para funcionar. Ou seja, as funções são dependentes uma da outra para funcionar.
 
-Como nós podemos resolver esse problema?
+Conseguiríamos resolver esse problema dessa forma:
 
 ```java
 Options opts = ctxt.getOptions();
@@ -200,28 +213,16 @@ File scracthDir = opts.getScratchDir();
 final String outputDir = stracthDir.getAbsolutePath();
 ```
 
-Porém, devemos nos atentar que se o exemplo acima fosse uma estrutura de dados, não teria problemas, ex: `first_name = full_name.to_downcase.split(" ").first`
+Porém, devemos nos atentar que se o exemplo acima fosse uma estrutura de dados, não seria um problema, ex: `first_name = full_name.to_downcase.split(" ").first`.
 
-As vezes esbarramos com esse tipo de código:
-```java
-String outfile = outputDir + "/" + className.replace(".", "/") + ".class";
-FileOutputStream fout = new FileOutputStream(outFile);
-BufferedOutputStream bos = new BufferedOutputStream(fout);
-```
-Esse código faz muita coisa e cada linha de código está dependente do anterior, ciolando a lei de Demeter.
-
-Mas como podemos resolver?
-```java
-BufferedOutoutStream bos = ctxt.createScratchFileStream(classFileName)
-```
-Podemos esconder a estrutura de um arquivo em uma classe. Assim, ele não estaria violando a lei de Demeter.
+O primeiro exemplo dado, temos um problema de acesso de informação. Esse caso viola a lei de Demeter. Já no exemplo acima, estamos transformando essa informação, o que não há problema.
 
 ## Transferência de dados
-Quando falamos em transferência de dados, estamos nos referindo a objetos que possuem apenas variáveis com nenhum método.
+Quando falamos em transferência de dados, estamos nos referindo a objetos que possuem apenas variáveis, mas nenhum método.
 
 Algumas pessoas gostam de deixar todos os atributos privados, e acessá-los através de `getters` e `setters`.
 
-A única real vantagem disso, é deixar o código mais voltado para Programação orientada a objeto, e preparado para um possível crescimento.
+A única real vantagem disso, é deixar o código mais voltado para `Programação Orientada a Objeto`, e preparado para um possível crescimento.
 
 ```java
 public class Person{
@@ -244,68 +245,47 @@ public class Person{
 ```
 
 ## Active Record
-Active record funciona como traduções diretas do banco de dados. Geralmente são Objetos de Transferência de dados, com alguns métodos navigacionais como `save` ou `find`.
+Active record funciona como traduções diretas do banco de dados. Geralmente são Objetos de Transferência de Dados, com alguns métodos navegacionais como `save` ou `find`.
 
-O problema acontece quadno tentamos modificar ele para adicionar regras de negócio, criando uma estrutura Hibrida, meio objeto, meio estrutura de dados
+Acontece que, quando tentamos adicionar regras de negócio e deixá-lo mais robusto, acabamos por criar uma estrutura híbrida , meio objeto, meio estrutura de dados que, como vimos acima, é sempre ruim.
 
-A solução seria tratar o Active Record como uma estruturade dados, e criar objetos separados que possuam regras de negócio e outros dado internos.
+A solução para esse problema seria tratar o Active Record como uma estrutura de dados, e criar objetos separados que possuam regras de negócio e outros dado internos.
 
 # Lidando com erros
-Antigamente as pessoas tentavam checar por todos os tipos de erro, e, dando ruim, eles enviavam um erro para ser tratado depois.
+![Gif de várias popul de erro, escrito "fail", em uma tela do windows]({{ site.baseurl }}/images/cleancode13.gif)
+*Faaaail*
 
-O problema é que você precisa pensar em tudo isso antes de escrever o código, o que além de prejudicar a legibilidade, é fácil de esquecer. 
+Lidar com erro é importante, mas quando o tratamento de erro deixa a lógica obscura e confusa, ele está sendo feito de forma errada.
 
-Por isso, é interessante jogar uma exception mais genérica.
+Antigamente as pessoas tentavam checar por todos os tipos de erros de uma vez, e isso trazia muitos problemas além dos citados acima.
 
-O mais importante é que as mensagens de erro sejam claras o suficiente para você, desenvolvedor, saber o que está acontecendo depois.
+Outro problema dessa abordagem é que você precisa pensar em todos os cenários antes de escrever o código, que não só prejudica a legibilidade, como é fácil de esquecer de tratar o erro depois.
 
-Outra coisa interessante, é escrever seu `try-catch` primeiro. 
-Pensa que tudo que está no try catch deve ser independente e desacoplado do restante da aplicação pois, se ele aquele pedaço de código der problema, provavelmente não queremos quebrar todo o restante da aplicação.
+Por isso a forma mais interessante de lidar com erro é jogar uma exception mais genérica.
+
+Quando jogamos exceptions, precisamos ter o cuidado de deixar as mensagens claras para que você, desenvolvedor, saiba como identificar o problema depois que ele ocorre.
+
+Uma dica para escrever códigos que lidem bem com erro, é escrever seu `try-catch` primeiro.
+
+Pensa que tudo que está no `try catch` deve ser independente e desacoplado do restante da aplicação pois, se ele aquele pedaço de código der problema, provavelmente não queremos quebrar todo o resto.
 
 Escrevendo o `try-catch` primeiro, ajuda a deixá-lo independente.
 
-## Uma pévia sobre lidar com código alheio
+## Uma prévia sobre lidar com código alheio
 
 Quando usamos um código de terceiros, o ideal não tratar os erros dele direto no seu código.
 
 O ideal é encapsular essa lib em uma classe só pra ela, e tratar os erros lá dentro
 
-## Definindo o fluxo normal.
-As vezes usamos o try catch para lidar com uma exceção de regra e negócio.
-
-No exemplo abaixo, o retorno do valor default não é feito dentro de uma trativa de erro, e sim dentro da classe, que é onde ele deveria estar
-
-antes:
-```java
-try{
-  MealExpenses expenses = expenseReportDAO.getMeals(employee.getID())
-  m_total += expenses.getTotal();
-} catch (MealExpensesNotFound e){
-  m_total += getMealPerDiem();
-}
-```
-Depois
-```java
-MealExpenses expenses = expenseReportDAO.getMeals(employee.getID())
-m_total += expenses.getTotal();
-
-----
-public class perDiemMealExpenses implements MealExpenses {
-  public int getTotal(){
-    //return the per diem default
-  }
-}
-```
-
 ## Null/Nil
-Qundo trabalhamos com null no nosso código, criamos um problema difícil de debugar. 
+Quando trabalhamos com null no nosso código, criamos um problema difícil de debugar.
 
-Quando alguam coisa da errada, ele solta uma exceção genérica, nos informando que algo de errado não esta certo, e é sempre difícil encontrar a causa raiz no nosso código.
+Quando alguma coisa dá errada, ele solta uma exceção genérica, nos informando que algo de errado não está certo. Essa exceção é tão genérica, que encontrar sua raiz é bem difícil.
 
-As vezes precisamos verificar se algo não existe e ficamos tentado a verificar se `algo == null`.Nesse caso, verifique se existem outras formas de verificação. Dificilmente você não vai conseguir fazer essa troca.
+As vezes precisamos verificar se algo não existe e ficamos tentado a verificar se `algo == null`.Nesse caso, procure saber se não existem outras formas de verificação. Dificilmente você não vai conseguir fazer essa troca.
 
 Se for uma lista, podemos verificar se a lista está vazia, se for uma String, conseguimos verificar se ela está em branco e por ai vai.
 
 E, o mais importante, não passe null como argumento. Quando fazemos isso, as chances de dar um `null pointer exception` (e equivalentes) são muito maiores.
 ----
-*imagem do post de [Sarah Dorweiler](https://unsplash.com/@sarahdorweiler)*
+*imagem do post de [Jazmin Quaynor](https://unsplash.com/@jazminantoinette)*

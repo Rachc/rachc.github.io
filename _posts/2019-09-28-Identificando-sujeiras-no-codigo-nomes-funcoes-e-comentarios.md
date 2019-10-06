@@ -283,4 +283,4 @@ O livro [Clean code](https://www.amazon.com.br/gp/product/8576082675/ref=as_li_t
 Quem quiser se aprofundar mais em como corrigir os problemas, pode ler o livro [Refactoring](https://www.amazon.com.br/s/ref=as_li_ss_tl?k=refactoring&__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&ref=nb_sb_noss_2&linkCode=ll2&tag=rachc-20&linkId=65987f7573c86a94cd2bd08051b1e328&language=pt_BR), que tem mais detalhes com formas diferentes de eliminar as sujeiras do código.
 
 ----
-*imagem do porst de [Sarah Dorweiler](https://unsplash.com/@sarahdorweiler)*
+*imagem do post de [Sarah Dorweiler](https://unsplash.com/@sarahdorweiler)*
