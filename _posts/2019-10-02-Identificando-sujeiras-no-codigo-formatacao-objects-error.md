@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Identificando sujeiras no código - Formatação, Objetos e estrutura de dados e erros
-date:   2019-09-28 20:20:00 +0300
+date:   2019-10-07 08:40:00 -0300
 image:  cleancode10.jpg
 tags:   Clean-Code
 ---
@@ -52,7 +52,7 @@ def ice_cream
 end
 
 def banana(something_3)
-  return "something" if is_chocolate?(something_3)
+  return "something" if chocolate?(something_3)
   avocado(something_3)
 end
 
@@ -261,11 +261,11 @@ Antigamente as pessoas tentavam checar por todos os tipos de erros de uma vez, e
 Outro problema dessa abordagem é que você precisa pensar em todos os cenários antes de escrever o código, que não só prejudica a legibilidade, como é fácil de esquecer de tratar o erro depois:
 
 ```ruby
-if ("scenary 01")
+if ("scenario 01")
   #...
-elsif ("scenary 02")
+elsif ("scenario 02")
 #(...)
-elsif ("scenary 234334134134")
+elsif ("scenario 234334134134")
   #...
 end
 ```
