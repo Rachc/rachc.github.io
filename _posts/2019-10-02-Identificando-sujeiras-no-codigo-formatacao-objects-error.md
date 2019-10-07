@@ -23,7 +23,7 @@ Vamos lá!
 ![Trecho do vídeo "formation" da Beyoncé]({{ site.baseurl }}/images/cleancode11.gif)
 *Formation*
 
-Ao olhar para um código que não está bem formatado, a primeira impressão que temos, é que todo o código não está muito bom, e acabamos não o levando a sério.
+Ao olhar para um código que não está bem formatado, a primeira impressão que temos é que todo o código não está muito bom, e acabamos não o levando a sério.
 
 Quando o assunto é formatação, não olhamos apenas a indentação, mas também como os blocos de código estão organizados.
 
@@ -38,7 +38,7 @@ O ideal é que o código seja dividido em módulos, com um espaço entre cada m�
 
 Primeiro deverão ser declaradas as variáveis e depois as funções dependentes. A única coisa que deve burlar essa ordem, são funções que tenham uma afinidade conceitual.
 
-No exemplo abaixo, consigo mostrar a ordem que as coisas deveriam ser chamadas, e quando falo em funções que possuam afinidade conceitual, falo de `is_chocolate?` e `is_not_chocolate?`
+No exemplo abaixo, consigo mostrar a ordem que as coisas deveriam ser chamadas, e quando falo em funções que possuam afinidade conceitual, falo de `chocolate?` e `not_chocolate?`
 
 (Gente, foca na ordem que as funções aparecem e não nos nomes)
 
@@ -56,11 +56,11 @@ def banana(something_3)
   avocado(something_3)
 end
 
-def is_chocolate?(something_4)
+def chocolate?(something_4)
   #algum código
 end
 
-def is_not_chocolate?(something_4)
+def not_chocolate?(something_4)
   #Outro código
 end
 
@@ -151,7 +151,7 @@ Repare que no segundo exemplo, nós não temos nenhum método do tipo `setX` ou 
 
 O primeiro exemplo nos força a lidar com cada variável separadamente, mesmo elas sendo uma dupla.
 
-Ocultar implementação não é apenas uma questão de esconder variáveis, é uma questão de abstração. Uma classe não é apenas um emaranhado de getters e Setters. Elas manipulam dados, e essa deveria ser sua essência.
+Ocultar implementação não é apenas uma questão de esconder variáveis, é uma questão de abstração. Uma classe não é apenas um emaranhado de getters e setters. Elas manipulam dados, e essa deveria ser sua essência.
 
 ## Estrutura de dados ou Objetos?
 Objetos escondem-se por trás de abstrações, e suas funções públicas servem para manipular os seus dados.
@@ -213,7 +213,11 @@ File scracthDir = opts.getScratchDir();
 final String outputDir = stracthDir.getAbsolutePath();
 ```
 
-Porém, devemos nos atentar que se o exemplo acima fosse uma estrutura de dados, não seria um problema, ex: `first_name = full_name.to_downcase.split(" ").first`.
+Porém, devemos nos atentar que se o exemplo acima fosse uma estrutura de dados, não seria um problema.
+
+```ruby
+first_name = full_name.to_downcase.split(" ").first
+```
 
 O primeiro exemplo dado, temos um problema de acesso de informação, e isso viola a lei de Demeter. Já no exemplo acima, estamos transformando essa informação, e não há nenhum problema nisso.
 
@@ -223,6 +227,8 @@ Quando falamos em transferência de dados, estamos nos referindo a objetos que p
 Algumas pessoas gostam de deixar todos os atributos privados, e acessá-los através de `getters` e `setters`.
 
 A única real vantagem disso, é deixar o código mais voltado para `Programação Orientada a Objeto`, e preparado para um possível crescimento.
+
+Quando temos classes assim, vale se perguntar sobre a necessidade dessas classes existitem.
 
 ```java
 public class Person{
@@ -244,13 +250,6 @@ public class Person{
 }
 ```
 
-## Active Record
-Active record funciona como traduções diretas do banco de dados. Geralmente são `Objetos de Transferência de Dados`, com alguns métodos navegacionais como `save` ou `find`.
-
-Acontece que, quando tentamos adicionar regras de negócio e deixá-lo mais robusto, acabamos por criar uma estrutura híbrida , meio objeto, meio estrutura de dados que, como vimos acima, é sempre ruim.
-
-A solução para esse problema seria tratar o Active Record como uma estrutura de dados, e criar objetos separados que possuam regras de negócio e outros dado internos.
-
 # Lidando com erros
 ![Gif de várias popup de erro, escrito "fail", em uma tela do windows]({{ site.baseurl }}/images/cleancode13.gif)
 *Faaaail*
@@ -259,17 +258,35 @@ Lidar com erro é importante, mas quando o tratamento de erro deixa a lógica ob
 
 Antigamente as pessoas tentavam checar por todos os tipos de erros de uma vez, e isso trazia muitos problemas além dos citados acima.
 
-Outro problema dessa abordagem é que você precisa pensar em todos os cenários antes de escrever o código, que não só prejudica a legibilidade, como é fácil de esquecer de tratar o erro depois.
+Outro problema dessa abordagem é que você precisa pensar em todos os cenários antes de escrever o código, que não só prejudica a legibilidade, como é fácil de esquecer de tratar o erro depois:
 
-Por isso a forma mais interessante de lidar com erro é jogar uma exception mais genérica.
+```ruby
+if ("scenary 01")
+  #...
+elsif ("scenary 02")
+#(...)
+elsif ("scenary 234334134134")
+  #...
+end
+```
 
-Quando jogamos exceptions, precisamos ter o cuidado de deixar as mensagens claras para que você, desenvolvedor, saiba como identificar o problema depois que ele ocorre.
+No exemplo acima, seria interessante encapsular o código com um tratamento de erro mais genérico, mas claro o suficiente para você conseguir encontrar a raiz do problema. Por exemplo, se você tem uma classe que busca usuários em outro sistema via HTTP, e você tem um erro HTTP, você não vai querer ter uma exception genérica de HTTP, mas sim uma exception que diz que você não conseguiu encontrar o usuário.
+
+Quando jogamos exceptions, precisamos ter o cuidado de deixar as mensagens claras para que você, pessoa desenvolvedora, saiba como identificar o problema depois que ele ocorre.
+
+Vale lembrar que nem todo erro é uma exception. Muitos erros podem ser tratados como fluxo normal de código. Muitas vezes um logging bem feito é melhor que jogar uma exception.
 
 Uma dica para escrever códigos que lidem bem com erro, é escrever seu `try-catch` primeiro.
 
 Pensa que tudo que está no `try catch` deve ser independente e desacoplado do restante da aplicação pois, se ele aquele pedaço de código der problema, provavelmente não queremos quebrar todo o resto.
 
 Escrevendo o `try-catch` primeiro, ajuda a deixá-lo independente.
+
+É importante frizar que nem todos os lugares precisam de tratamento de exceção: os que mais precisam são os onde há uma incerteza sobre o mundo exterior, como em conexões de rede, interações com o banco de dados, etc
+
+Outro ponto que precisa ser levantado é saber em que parte da stack você vai querer deixar o erro. Quanto mais acima da stack e próximo do usuário melhor, pois quanto mais longe da camada de interação você deixar, mais difícil de encontrar o erro. Porém, deixar próximo do usuário é diferente de estourar o erro para o usuário. Muitas vezes não queremo que o usuário saiba o que deu errado, porém sempre precisamos saber o que o usuário fez para que tal erro acontecesse.
+
+Esse é um tópico muito extenso [que daria um livro](http://exceptionalruby.com/)
 
 ## Uma prévia sobre lidar com código alheio
 
@@ -282,7 +299,7 @@ Quando trabalhamos com `null` no nosso código, criamos um problema difícil de 
 
 Quando alguma coisa dá errada, ele solta uma exceção genérica, nos informando que algo de errado não está certo. Essa exceção é tão genérica, que encontrar sua raiz é bem difícil.
 
-As vezes precisamos verificar se algo não existe e ficamos tentado a verificar se `algo == null`.Nesse caso, procure saber se não existem outras formas de verificação. Provavelmente existem.
+As vezes precisamos verificar se algo não existe e ficamos tentado a verificar se `algo == null`.Nesse caso, procure saber se não existem outras formas de verificação. Provavelmente existem, mas caso você não consiga encontra nada, é possível você criar a representação nula de algo
 
 Se for uma lista, podemos verificar se a lista está vazia, se for uma String, conseguimos verificar se ela está em branco e por ai vai.
 
