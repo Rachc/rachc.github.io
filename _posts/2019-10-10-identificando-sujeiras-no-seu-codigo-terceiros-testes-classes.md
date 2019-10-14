@@ -11,23 +11,22 @@ Essa série também serve como guia rápido do livro. Quando preciso relembrar u
 
 [No primeiro post]({{ site.baseurl }}/2019/09/28/Identificando-sujeiras-no-codigo-nomes-funcoes-e-comentarios/) consegui falar sobre Nomes, Funções e Comentários.
 
-
 [No segundo post]({{ site.baseurl }}/2019/10/07/Identificando-sujeiras-no-codigo-formatacao-objects-error/) falei sobre formatação, Estrutura de dados e como lidar com erros.
 
 Nesse último, falo sobre como lidar com código de terceiros, como organizar seus testes e suas classes.
 
 Além desses 9 tópicos, o [livro clean code](https://www.amazon.com.br/gp/product/8576082675/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=8576082675&linkCode=as2&tag=rachc-20&linkId=0d5e2c3e67461b310960dc69f64f1d9c) fala sobre lidar com sistemas, sobre alguns tópicos mais voltados para a linguagem Java e ele aborda também como identificar alguns code smells.
 
-Decidi não abordar esses tópicos pois gostaria de deixar a série mais genérica e voltada para todas as linguagens. Também por não ter tanto conhecimento prático sobre construções de sistemas do zero, e acredito que uma série exclusiva sobre refactoring poderia abordar melhor os code smells, já que no [livro clean code](https://www.amazon.com.br/gp/product/8576082675/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=8576082675&linkCode=as2&tag=rachc-20&linkId=0d5e2c3e67461b310960dc69f64f1d9c) o tema é um pouco superficial.
+Decidi não abordar esses tópicos pois gostaria de deixar a série mais genérica e voltada para todas as linguagens. Também por não ter tanto conhecimento prático sobre construções de sistemas do zero, e também acredito que uma série exclusiva sobre refactoring poderia abordar melhor os code smells, já que no [livro clean code](https://www.amazon.com.br/gp/product/8576082675/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=8576082675&linkCode=as2&tag=rachc-20&linkId=0d5e2c3e67461b310960dc69f64f1d9c) o tema é um pouco superficial.
 
 Dado os avisos, podemos começar com os tópicos do posts de hoje:
 
 # Lidando com código de terceiros
 Dificilmente fazemos um código 100% sozinhos. Geralmente contamos com alguma biblioteca para nos ajudar, e algumas vezes colegas contribuem com o código.
 
-É importante aprender a lidar com os limites do código, identificando bem onde o nosso código acaba e o código do outro termina, para conseguirmos manter o sistema com maior facilidade.
+É importante aprender a lidar com os limites do código, identificando bem onde o nosso código acaba e o código do outro começa, para conseguirmos manter o sistema com maior facilidade.
 
-Um dos problemas de se usar códigos de terceiros, é que geralmente eles possuem mais coisas que precisamos, e isso pode deixar nosso código com um comportamento estranho.
+Um dos problemas de se usar códigos de terceiros, é que geralmente eles possuem mais funcionalidades que precisamos, e isso pode deixar nosso código com um comportamento estranho.
 
 ## Encapsule sua biblioteca!
 
@@ -47,7 +46,7 @@ Se você trocar trocar a versão e rodar os testes, vai descobrir quais comporta
 Se eu puder resumir o uso de bibliotecas de terceiros no seu código em alguns tópicos, eles seriam:
 
 * Manter uma separação clara do código de terceiros e os seus.
-* Escrever bons testes para saber se o código de terceiro vai se portar da forma que esperamos.
+* Escrever bons testes para saber se o código de terceiro vai se portar da forma que esperamos. Importante frizar que você ta testando o seu código, e não o código da biblioteca.
 * Evitar ao máximo que nosso código tenha contato com códigos terceiros. É melhor depender de algo que você controla do que algo que você não controla.
 * Encapsular e criar adaptadores para que nosso código se refira a ele o mínimo possível, e para que nós possamos trocar a biblioteca no caso de algum problema.
 
@@ -78,7 +77,7 @@ O Uncle bob usa um acrônimo para ajudar a lembrar regras de um teste limpo.
 * **I**ndependent (Independente): Um teste nunca deve depender de outro teste para rodar. Deve ser possível rodar todos os testes aleatoriamente e sem que eles quebrem.
 * **R**epeatable (Repetível): Um teste precisa rodar em qualquer ambiente, seja em QA, em Produção ou no computador da sua casa. Ele deve ser repetível.
 * **S**elf-validating (auto validados): O resultado de um teste deve ser sempre um boolean, que informe se ele passou ou não.
-* **T**imely (oportuno): Eles tem um momento certo para serem escritos, que é antes de teste de produção. Se você deixar para depois, pode ser que você ache o teste muito difícil de ser testado e não testar (TDD)
+* **T**imely (oportuno): Eles tem um momento certo para serem escritos, que é antes de código de produção. Se você deixar para depois, pode ser que você ache o teste muito difícil de ser testado e não testar (TDD)
 
 # Organizando suas classes
 Em java, o padrão é que uma classe deve seguir a seguinte ordem:
@@ -90,7 +89,7 @@ Em java, o padrão é que uma classe deve seguir a seguinte ordem:
 5. Funções públicas
 6. Funções privadas chamadas pelas funções públicas devem ficar imediatamente abaixo da função pública que a chama
 
-Já em Ruby e em outras linguagens, todas as classes privadas devem estar agrupadas, e escritas depois de todo o código público. O ideal é que elas sigam a ordem que foram chamadas pelos métodos públicos.
+Já em Ruby e em outras linguagens, todos os métodos privados devem estar agrupadas, e escritas depois de todo o código público. O ideal é que elas sigam a ordem que foram chamadas pelos métodos públicos.
 
 ## Classes devem ser pequenas.
 
@@ -104,7 +103,7 @@ O primeiro sinal que uma classe possui responsabilidades demais é o nome dela.
 
 Classes devem ser nomeadas de uma forma explicativa, que você consiga entender o que ela faz. Se você precisa por um "and", um "or", um "if" e um "but", ela já está fazendo mais de uma coisa.
 
-no exemplo abaixo podemos ver que a classe `SuperDashboard` procura pelo ultimo componente focado **e** altera a versão da build, dessa forma tendo duas responsabilidades.
+No exemplo abaixo podemos ver que a classe `SuperDashboard` procura pelo ultimo componente focado **e** altera a versão da build, dessa forma tendo duas responsabilidades.
 
 ```java
 public class SuperDashboard {
