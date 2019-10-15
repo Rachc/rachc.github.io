@@ -37,6 +37,9 @@ Outra vantagem de encapsular uma biblioteca de terceiros em uma classe própria 
 Vamos supor que temos uma biblioteca no nosso código que conecta a um serviço de pagamento. No dia que quisermos trocar o serviço, é possível fazer essa troca apenas na classe que criamos. Conseguimos adaptar nossos métodos sem precisar vasculhar o código inteiro para trocar o que for da biblioteca antiga para a biblioteca nova.
 
 ## Explorando códigos de terceiros.
+![Third-party]({{ site.baseurl }}/images/cleancode21.gif)
+*Third-party :D*
+
 Quando queremos adicionar uma nova biblioteca no nosso código, precisamos entender o que ela faz e como ela funciona. Colocar código que não entendemos em produção pode ocasionar em alguns problemas.
 
 A melhor forma de descobrir o comportamento de uma biblioteca que queremos adicionar é escrever testes para situações que queremos que a biblioteca resolva e fazê-los passar. Dessa forma não só conseguimos descobrir como o código funciona, mas esses testes podem ser úteis para uma eventual troca de versão ou de biblioteca.
@@ -51,6 +54,9 @@ Se eu puder resumir o uso de bibliotecas de terceiros no seu código em alguns t
 * Encapsular e criar adaptadores para que nosso código se refira a ele o mínimo possível, e para que nós possamos trocar a biblioteca no caso de algum problema.
 
 # Organizando seus testes
+![Algum desenho de um cientista fazendo testes]({{ site.baseurl }}/images/cleancode22.gif)
+*Vamos testar*
+
 A maior preocupação que temos ao escrever um teste deve ser a sua legibilidade.
 
 Em um código de teste, a legibilidade pode ser até mais importante que um código em produção. 
@@ -80,6 +86,8 @@ O Uncle bob usa um acrônimo para ajudar a lembrar regras de um teste limpo.
 * **T**imely (oportuno): Eles tem um momento certo para serem escritos, que é antes de código de produção. Se você deixar para depois, pode ser que você ache o teste muito difícil de ser testado e não testar (TDD)
 
 # Organizando suas classes
+![Cookie monster fazendo biscoitos]({{ site.baseurl }}/images/cleancode23.gif)
+
 Em java, o padrão é que uma classe deve seguir a seguinte ordem:
 
 1. Lista de variáveis
