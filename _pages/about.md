@@ -17,6 +17,8 @@ A gente lá mexe com umas tecnologias legais também, como RabitMQ e Kafka, por 
 
 No passado eu também já brinquei um pouco com **Javascripto**, e até hoje tenho um pouco de saudades de **CSS**, mas vida que segue :'(
 
+**If you want to read my posts in english, [they are here](https://dev.to/rachc)**
+
 ***
 
 Acho que é importante também falar um pouco desse layout maravilhoso que eu estou usando.
