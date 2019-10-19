@@ -10,7 +10,7 @@ author:
   name: Rachel Curioso
   image: rach.jpg
   say-hello: Olá, sou <strong>Rachel Curioso</strong>
-  bio: Site pessoal de <strong>Rachel Curioso</strong>, Programadora Backend que costuma a brincar com Ruby, Rails, Kotlin e java. A idéia é que esse site seja um blog de <strong>tecnologia</strong>, onde eu coloco todos os <strong>meus aprendizados</strong>
+  bio: Site pessoal de <strong>Rachel Curioso</strong>, Programadora Backend que costuma a brincar com Ruby, Rails, Kotlin e java. A idéia é que esse site seja um blog de <strong>tecnologia</strong>, onde eu coloco todos os meus aprendizados. <strong>If you want to read my posts in english, <a href="https://dev.to/rachc" target="_blank">they are here</a></strong>
 
 #-------------------------------
 # Contact links
