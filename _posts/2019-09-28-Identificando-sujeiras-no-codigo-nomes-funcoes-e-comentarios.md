@@ -32,7 +32,6 @@ Sei que ficará faltando uma parte importante sobre code smells, mas esse tópic
 Vamos começar?
  
 # Batize bem o seu código!
- 
 ![gif escrito "hello, my name is"]({{ site.baseurl }}/images/cleancode01.gif)
 *Por favor, me dê um bom nome*
  
