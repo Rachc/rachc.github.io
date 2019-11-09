@@ -3,7 +3,7 @@ layout: post
 title:  Refatorando - Qual dor você quer tratar?
 date:   2019-11-09 10:40:00 -0300
 image:  refactoring00.jpg
-tags:   Refatoração
+tags:   Refactor
 ---
 Quando começamos a estudar técnicas de refatoração, nos deparamos com diversos (anti)padrões que podemos encontrar no nosso código.
 
