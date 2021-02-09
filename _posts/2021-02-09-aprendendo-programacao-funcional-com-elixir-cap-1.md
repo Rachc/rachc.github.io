@@ -115,10 +115,12 @@ end
 
 E dai o código fica muito mais fácil de entender
 * (Rachel aqui: Funções são peças que podem ser encaixadas nas funções, como se fosse plug'n'play, mas devemos nos atentar a assinatura das funções. Se a primeira função produz um string, a segunda deve receber uma string (e se ela produzir um boolean, a terceira tem que aceitar um boolean, e por ai vai)
+
 # Declarando código
 * Programação imperativa foca em "como vamos resolver um problema"?
 * Enquanto na programação funcional (rachel: mas não apenas), o foco é em responder "o que é necessário para resolver um problema"
 * Como exemplo de função imperativa nós temos o código abaixo, que possui loops e você precisa informar com detalhes como que as coisas devem acontecer
+
 ```javascript
 var pratos = ["camarão", "macarrão", "batatas"]
 
@@ -133,20 +135,25 @@ function upcase(lista) {
 upcase(pratos);
 // => ["CAMARÃO", "MACARRÃO", "BATATAS"]
 ```
+
 * Já em programação funcional nós trocamos loops por recursão e focamos mais em como nós gostariamos de tratar o dado do que em como nós gostaramos de lidar com ele
+
 ```elixir
 defmodule StringList do
   def upcase([]), do: []
   def upcase([first|rest]), do: [String.upcase(first)|upcase(rest)]
 end
 ```
+
 * (Rach aqui: as entranhas dessas função a gente vai entender mais pra frente. No momento é melhor entender do que sentir, mas nós temos no exemplo acima formas de manipular listas, recursão e pattern match. No exemplo acima é como se usassemos "if" com esteroides)
 * Podemos também usar algumas funções prontas como 
+
 ```elixir
 var pratos = ["camarão", "macarrão", "batatas"]
 Enum.map(pratos, &String.upcase/1)
 # => ["CAMARÃO", "MACARRÃO", "BATATAS"]
 ```
+
 * Hoje muitas linguagens abraçaram a forma declarativa de se fazer código. Enuns estão em todos os lugares.
 
 # Créditos 
