@@ -11,19 +11,18 @@ Pra quem chegou agora eu, junto com a Elaine Watanabe e a Juliana Helena, estamo
 Estamos fazendo lives [aqui](https://www.youtube.com/channel/UCHDwILYk5-LpMAUIUcPSZMw), e essas são as minhas anotações (:
 
 Pra quem perdeu a primeira parte, [aqui está o link da live](https://www.youtube.com/watch?v=DYszf5MF8fA), e [aqui as anotações](({{ site.baseurl }}/2021/02/09/aprendendo-programacao-funcional-com-elixir-cap-1/))
-
-e o link da live sobre o capitulo 2, referente às essas notas [está aqui](https://youtu.be/wmLJBtjGJgk)
+e o link da live sobre o capítulo 2, referente às essas notas [está aqui](https://youtu.be/wmLJBtjGJgk)
 
 # Trabalhando com variáveis e funções
 ## Representando valores (tipos)
-* Valores são tudo aquilo que pode representar dados. Pode ser a quantidade de transações de um usuário, o preço de um produto ou qualquer coisa que o um programa possa receber de input, compute e gere resultado
+* Valores são tudo aquilo que pode representar dados. Pode ser a quantidade de transações de um usuário, o preço de um produto ou qualquer coisa que o um programa possa receber de input, computar e gerar resultado
 
-* se digitarmos `10` no nosso terminal, ele retorna 10 e isso é um valor, que representa um número e possui tipo `integer`
+* Se digitarmos `10` no nosso terminal, ele retorna 10 e isso é um valor, que representa um número e possui tipo `integer`
 * Digitando `"Elixirlab é top"` nós temos um outro tipo de valor, dessa vez do tipo `String`.
 
-* A tabela abaixo tem alguns tipos que podemos encontrar em elixir. (a lista completa [pode ser encontrada na doc oficial](https://hexdocs.pm/elixir/typespecs.html#basic-types) - em inglês)
+* A tabela abaixo tem alguns tipos que podemos encontrar em elixir. A lista completa [pode ser encontrada na doc oficial](https://hexdocs.pm/elixir/typespecs.html#basic-types) - em inglês.
 
-| Tipo  |            Util para          |                Exemplos             |
+| Tipo  |            Útil para          |                Exemplos             |
 |------ |-------------------------------|-------------------------------------|
 |string |Textos                         |"Hello World", "ElixirLab"           |
 |integer|números inteiros               |42, 33, 583, 0301, -23               |
@@ -43,9 +42,9 @@ e o link da live sobre o capitulo 2, referente às essas notas [está aqui](http
 
 ## Executando código e gerando um resultado (operadores)
 
-* Quando usamos o terminal (iex), digitamos e apertamos enter o computador vai processar aquele valor.
+* Quando usamos o terminal (iex), digitamos e apertamos enter, o computador vai processar aquele valor.
 
-* Se você digitar `42` ele vai retornar `42` da mesma forma que se você digitar `1+1` ele retorna `2`
+* Se você digitar `42`, ele vai retornar `42` da mesma forma que se você digitar `1+1` ele retorna `2`
 
 ```elixir
 iex> 42
@@ -85,21 +84,21 @@ iex> 12 + 8.5
 
 * Elixir tem dois operadores que não são tão comuns em outras linguagens, que é o `++` e o `<>` que servem para concatenar
 
-* o `++` serve para concatenar listas
+* O `++` serve para concatenar listas
 
 ```elixir
 iex> [1,2] ++ [3,4]
 [1,2,3,4]
 ```
 
-* enquanto o `<>` junta strings
+* Enquanto o `<>` junta strings
 
 ```elixir
 iex>"Sorvete " <> "de " <> "Creme."
 "Sorvete de Creme."
 ```
 
-* vale frisar aqui que o operador `+` não funciona para juntar strings, apenas o `<>`
+* Vale frisar aqui que o operador `+` não funciona para juntar strings, apenas o `<>`
 
 ```elixir
 iex> "Sorvete " + "de " + "Creme."
@@ -119,7 +118,7 @@ iex> "Sorvete " + "de " + "Creme."
 
 #### Truthy e Falsy (adicionado por Rachel)
 
-* O Elixir também consegue comparar valores `truthy` e `falsy`, que na real são expressões não-boolean
+* O Elixir também consegue comparar valores `truthy` e `falsy`, que na real são expressões não-booleanas
 
 * Em elixir os únicos valores `falsy` são `false` e `nil`, de resto, qualquer valor é considerado true
 
@@ -134,7 +133,7 @@ iex> "Sorvete " + "de " + "Creme."
 * `sentido_da_vida = 42` <- você define um nome na esquerda, acrescenta um `=` e o valor na direita
 
 * O Ulisses compara a criação de variável como colocar uma etiqueta em uma caixa (que você coloca o nome na direita e aponta o valor dessa etiqueta na esquerda)
-* também podemos usar variáveis para compor o valor de outras variáveis:
+* Também podemos usar variáveis para compor o valor de outras variáveis:
 
 ```elixir
 x = 3
@@ -144,7 +143,7 @@ z = x + y # 10
 
 * Apesar do elixir não se importar com o nome da variável e funcionar direitinho, devemos lembrar que um código é feito para as pessoas que vão dar manutenção a ele, então colocar nomes que fazem sentido é o mais indicado.
 
-* ao invés de x, y e z podemos usar nomes com mais significado como:
+* Ao invés de x, y e z podemos usar nomes com mais significado como:
 
 ```elixir
 z = x + y #ruim
@@ -222,7 +221,7 @@ iex> "Garçom, me vê um #{sabor_de_pastel.(sabor_favorito)}"`
 "Garçom, me vê um Pastel de queijo"`
 ```
 
-* Podemos usar mais deu ma linha em uma função anônima
+* Podemos usar mais de uma linha em uma função anônima
 
 ```elixir
 pedindo_pastel = fn sabor ->
@@ -278,7 +277,7 @@ iex> risotinho_top.("top demais")
 "Acho o risoto de funghi top demais"
 ```
 
-* No exemplo acima temos uma função anonima que está usando uma variável em um escopo externo, mas que a função tem contexto
+* No exemplo acima temos uma função anônima que está usando uma variável em um escopo externo, mas que a função tem contexto
 
 * (Achei essa definição de closure em um [post da Charlotte](https://imasters.com.br/desenvolvimento/closures-funcoes-anonimas-e-funcoes-nomeadas) no imasters)
 
@@ -298,7 +297,7 @@ iex> risotinho_top.("top demais")
 
 #### Sobre precedências de variáveis em diferentes escopos
 
-* Se existe uma variável de mesmo nome, sendo uma dentro de uma função e outra fora, na função a precedência é variável criada dentro da função:
+* Se existe uma variável de mesmo nome, sendo uma dentro de uma função e outra fora, na função a precedência maior é da variável criada dentro da função:
 
 ```elixir
 iex> chiclete = "morango"
@@ -315,7 +314,7 @@ iex> babaloo.("tuti-fruti")
 
 * Funções nomeadas são criadas dentro de módulos
 
-* (Rachel aqui: é o mais próximo de um objeto que nós vamos ter. Módulos são como uma caixinha de ferramentas e cada função é uma ferramenta diferente)
+* (Rachel aqui: é o mais próximo de um objeto que nós vamos ter. Módulos são como uma caixinha de ferramentas e cada função é uma ferramenta diferente, a diferença é não teremos estado)
 
 * Podemos usar aliases ou atoms para nomear um módulo
 
@@ -342,7 +341,7 @@ true
 
 ### Funções nomeadas em elixir
 
-* O elixir vem com modulos e funções embutidos dentro dele. 
+* O elixir vem com módulos e funções embutidos dentro dele. 
 
 * O que eu, Rachel, mais uso no dia a dia são as funções do módulo `Enum` 
 
@@ -362,7 +361,7 @@ true
 
     * `h Enum.map`
 
-    * Sério, a ajuda do elixir embutida no terminal é uma coisa linda demais! tem uma extensa explicação e bons exemplos <3 e dica: da pra fazer esse nivel de ajuda na sua aplicação usando docs, mas explicaremos isso depois (acho)
+    * Sério, a ajuda do elixir embutida no terminal é uma coisa linda demais! tem uma extensa explicação e bons exemplos <3 e dica: dá pra fazer esse nível de ajuda na sua aplicação usando docs, mas explicaremos isso depois (acho)
 
 ### Criando módulos e funções
 * Nós podemos colocar um módulo em qualquer lugar do projeto que ele vai ser acessível pra todo mundo (geralmente na pasta lib, mas não encanaremos isso por hora)
@@ -388,15 +387,15 @@ end
 
 * (Já já falamos sobre como usar um módulo. aguenta ai!)
 
-* Mas a real é que dentro de um módulo podemos criar o que quisermos. Variaveis, funções anonimas, funções nomeadas (publicas ou privadas) e por aí vai
+* Mas a real é que dentro de um módulo podemos criar o que quisermos. Variaveis, funções anônimas, funções nomeadas (públicas ou privadas) e por aí vai
 
-* Só relembrando que as convenções de de nome para módulos é `CamelCase` e as funções são `snake_case`
+* Só relembrando que as convenções de nome para módulos é `CamelCase` e para funções é `snake_case`
 
 * Se quisermos acessar essa função de outra parte do código usamos `NomeDoModulo.funcao_marota(valor)` 
 
 * Mas podemos usar também o módulo no terminal:
 
-  * **No termnal, vamos para a pasta que está nosso módulo** <- importante!!!!!
+  * **No terminal, vamos para a pasta que está nosso módulo** <- importante!!!!!
   
   * iex
 
@@ -408,19 +407,19 @@ end
 
 * `def funcao_marota(valor), do: IO.inspect(valor)`
 
-* A escolha de quando é melhor uma ou outra vai do gosto do fregues
+* A escolha de quando é melhor uma ou outra vai do gosto do freguês
 
-* É boa prática nomear o seu modulo de acordo com a estrutura de pastas que ele está inserido
+* É boa prática nomear o seu módulo de acordo com a estrutura de pastas que ele está inserido
 
 * Então se sua estrutura de pastas é algo como `projeto > lib > comidas > massas > macarrao.ex ` é interessante chamar seu módulo de `Comidas.Massas.Macarrao`
 
-* A vantagem disso é que cada módulo tem que ter um nome único, então se você use padrão consegue não só diminuir a chance de ter módulos de nomes repetidos, mas também ajuda a organizar melhor o seu projeto
+* A vantagem disso é que cada módulo tem que ter um nome único, então se você usar o padrão, consegue não só diminuir a chance de ter módulos de nomes repetidos, mas também ajuda a organizar melhor o seu projeto
 
 ### Importando funções nomeadas
 
 * Ocasionalmente queremos usar as funções em outros módulos, e isso é fácil de fazer com a sintaxe `NomeDoModulo.funcao()`, mas as vezes faz sentido que você trate essa função como as funções tipo `Kernel`, que é possível chamar só `funcao()`.
 
-* Da pra fazer isso usando import
+* Dá pra fazer isso usando import
 
 * No exemplo abaixo usamos as funções `write` e `read` do módulo `File`
 
@@ -430,7 +429,7 @@ defmodule TaskList do
   
   def add(task_name) do
     task = "[ ] " <> task_name <> "\n"
-  File.write(@file_name, task, [:append])
+    File.write(@file_name, task, [:append])
   end
   
   def show_list do
@@ -449,7 +448,7 @@ defmodule TaskList do
   
   def add(task_name) do
     task = "[ ] " <> task_name <> "\n"
-  write(@file_name, task, [:append])
+    write(@file_name, task, [:append])
   end
   
   def show_list do
@@ -466,7 +465,7 @@ end
 
 #### Aridade (Adicionado por Rachel)
 
-* mas o que vem a ser esses numeros depois das funções que queremos importar?
+* mas o que vem a ser esses números depois das funções que queremos importar?
 
 * Chamamos isso de **Aridade**. 
 
@@ -474,17 +473,17 @@ end
 
 * E porque isso é importante?
 
-* Em elixir podemos ter incontaveis funções com o mesmo nome, e o elixir entende que funções de mesmo nome com aridades distintas são funções distintas. 
+* Em elixir podemos ter incontáveis funções com o mesmo nome, e o elixir entende que funções de mesmo nome com aridades distintas são funções distintas. 
 
 * Se você for no terminal, dentro do seu iex, e digitar `h Enum.all?` e apertar tab, você vai ver que temos `Enum.all?/1` e `Enum.all?/2` 
 
 ### Usando funções nomeadas como valores
 
-* podemos capturar funções anonimas em variáveis `sum_2 = fn number -> number + 2 end`
+* Podemos capturar funções anônimas em variáveis `sum_2 = fn number -> number + 2 end`
 
 * mas conseguimos capturar funções nomeadas em uma variável?
 
-* `first = Sring.first` vai retornar um erro (mesmo se você tentar especificar a aridade `min = String.first/1`). Elixir vai dar uma embananada
+* `first = Sring.first` vai retornar um erro (mesmo se você tentar especificar a aridade `first = String.first/1`). Elixir vai dar uma embananada
 
 * mas e se eu quiser fazer isso? tem jeito?
 
@@ -495,13 +494,14 @@ iex> first = fn string -> String.first(string) end
 iex> first.("Olar")
 "O"
 ```
+
 #### Operador &
 
 * O operador `&` é uma forma de simplificar a escrita de funções anônimas
 
-* (rachel: Particularmente eu acho que confunde um pouco quem é iniciante na linguagem. Não é a sintaxe mais legível do mundo, mas depois que você se acostuma, ela simplifica um pouco a vida. Então o conselho é usar com parcimônia)
+* (Rachel: Particularmente eu acho que confunde um pouco quem é iniciante na linguagem. Não é a sintaxe mais legível do mundo, mas depois que você se acostuma, ela simplifica um pouco a vida. Então o conselho é usar com parcimônia)
 
-* o operador `&` captura uma função anonima.
+* o operador `&` captura uma função anônima.
 
 * Então no lugar de escrever `first = fn string -> String.first(string) end` podemos escrever `first = &String.first/1`
 
