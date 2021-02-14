@@ -6,11 +6,11 @@ image:  functional01.jpg
 tags:   Funcional, Elixir
 ---
 # Intro
-Pra quem chegou agora eu, junto com a Elaine Watanabe e a Juliana Helena, estamos estudando o livro Learning Functional Programming with elixir do autor Ulisses Almeida.
+Pra quem chegou agora eu, junto com a Elaine Watanabe e a Juliana Helena, estamos estudando o livro Learn Functional Programming with Elixir do autor Ulisses Almeida.
 
 Estamos fazendo lives [aqui](https://www.youtube.com/channel/UCHDwILYk5-LpMAUIUcPSZMw), e essas são as minhas anotações (:
 
-O link da live do primeiro capitulo, referente às essas notas [está aqui](https://www.youtube.com/watch?v=DYszf5MF8fA)
+O link da live do primeiro capítulo, referente às essas notas [está aqui](https://www.youtube.com/watch?v=DYszf5MF8fA)
 
 # Cap.01 - Por que funcional?
 * Um paradigma de programação consiste em regras e principios de design para a construção de um software. 
