@@ -117,15 +117,50 @@ iex> "Sorvete " + "de " + "Creme."
 
 * `not` e `!` vai retornar true se o resultado for o oposto do que nós esperamos (confuso, mas pensa que `!true` é `false` )
 
+#### Quando usar um e quando usar outro
+* `and` e `or` só funcionam com expressões booleanas e retornam sempre booleanos
+
+* O `&&` e `||` funcionam com expressões truthy e falsy e o retorno pode variar
+
+* Quando usamos `&&` e `||` o regra de retorno é o seguinte:
+
+* Quando falamos de `&&`
+
+```elixir
+iex> is_integer(2) && 3 #o resultado da expressão é true. Ele vai retornar o ultimo valor
+3
+iex> 3 && is_integer(2) #o resultado da expressão é true. Ele vai retornar o ultimo valor
+true
+iex> 3 && is_nil(2) #o resultado da expressão é false
+false
+iex> is_nil(2) && 3 #o resultado da expressão é false
+false
+```
+
+* Quando falamos de `||`
+
+```elixir
+iex> is_nil(2) || 3 # um é falso, outro verdadeiro, vai retornar o valor verdadeiro
+3
+iex> 3 || is_nil(2)# um é falso, outro verdadeiro, vai retornar o valor verdadeiro
+3
+iex> is_integer(2) || 3 # vai retornar o valor da expressão, que é true
+true
+iex> 3 && is_integer(2) # vai retornar o valor da expressão, que é true
+true
+
+```
+
 #### Truthy e Falsy (adicionado por Rachel)
 
 * O Elixir também consegue comparar valores `truthy` e `falsy`, que na real são expressões não-boolean
 
-* Em elixir os únicos valores `falsy` são `false` e `nil`, de resto, qualquer valor é considerado true
+* Em elixir os únicos valores `falsy` são `false` e `nil`, de resto, qualquer valor é considerado true (inclusive `[]` ou `""` ou `0`)
 
 * É como se a gente estivesse comparando a existência de alguma coisa (valores `truthy` com a ausência `falsy`)
 
 * E por que isso é importante? Imagina que você está buscando um usuário no banco. Se ele existir, o elixir considera isso um valor `truthy` e se ele não existir, o valor é `falsy`
+
 
 ## Associando valores a variáveis
 
@@ -338,7 +373,13 @@ true
 
 * `String.upcase("uhuuuu")` <- String é o módulo e upcase é a função
 
-* Em elixir também podemos omitir parênteses, quando a função recebe apenas um argumento :D `IO.puts "top demais"`
+* Em elixir também podemos omitir parênteses, para todas as funções (exceto pipe), mas é dsaconselhavel usar por motivos de legibilidade
+
+```elixir
+iex> IO.puts "top demais" #ok, ainda é legível
+iex> Enum.map ["a", "b", "c"], &String.upcase/1 # desaconselho fortemente
+iex> IO.inspect "a", label: :my_a, limit: :infinity # olhaissoai! é só confuso!
+```
 
 ### Funções nomeadas em elixir
 
@@ -400,7 +441,7 @@ end
   
   * iex
 
-  * `c("nome_do_arquivo.ex")` (Rachel: eu entendo que c == compilar)
+  * `c("nome_do_arquivo.ex")` (`c` e de compile e load, [segundo a doc oficial](http://erlang.org/documentation/doc-5.3/doc/getting_started/getting_started.html))
 
   * `NomeDoModulo.funcao_marota(valor)`
 
