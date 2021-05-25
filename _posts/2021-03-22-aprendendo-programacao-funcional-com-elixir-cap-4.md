@@ -5,6 +5,14 @@ date:   2021-03-22 19:30:00 -0300
 image:  functional01.jpg
 tags:   Funcional, Elixir
 ---
+# Disclaimer
+* Os posts dessa série são minhas anotações pessoais dos meus estudos do livro "Aprendendo programação funcional com elixir.
+
+* Eles não passaram por revisão, possuem typos e alguns erros. 
+
+* Estão mais próximos de pensamentos desconexos do que de um texto estruturado.
+
+* Dito isso, segue anotações (: 
 
 # Conhecimentos prévios
 
