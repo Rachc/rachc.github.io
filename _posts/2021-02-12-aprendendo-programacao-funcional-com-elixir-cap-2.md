@@ -5,6 +5,15 @@ date:   2021-02-12 19:30:00 -0300
 image:  functional01.jpg
 tags:   Funcional, Elixir
 ---
+# Disclaimer
+* Os posts dessa série são minhas anotações pessoais dos meus estudos do livro "Aprendendo programação funcional com elixir.
+
+* Eles não passaram por revisão, possuem typos e alguns erros. 
+
+* Estão mais próximos de pensamentos desconexos do que de um texto estruturado.
+
+* Dito isso, segue anotações (: 
+
 # Intro
 Pra quem chegou agora eu, junto com a Elaine Watanabe e a Juliana Helena, estamos estudando o livro Learn Functional Programming with Elixir do autor Ulisses Almeida.
 
