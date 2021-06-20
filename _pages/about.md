@@ -5,15 +5,15 @@ permalink: /about/
 image: rach_rg01.jpg
 ---
 
-Olá, eu sou **Rachel Curioso** e quando não estou programando, estou lendo alguma ficção (embora esse ultimo ano esteja um pouco fraco de leitura).
+Olá, eu sou **Rachel Curioso** e quando não estou programando, estou lendo alguma ficção ou jogando no switch.
 
 Acredito bastante que uma das melhores formas de se aprender é **passar o conhecimento pra frente**, e por isso estou aqui. Postando as coisas que vou aprendendo.
 
+Além do blog costumo a falar sobre **elixir** junto com **Elaine Watanabe** e **Juliana Helena** [no youtube](https://www.youtube.com/elixirlaborg)
+
 O legal é que além de aprender, talvez eu consiga **ajudar** alguém que está começando a aprender também (:
 
-Atualmente sou desenvolvedora backend na [Wirecard Brasil](https://wirecard.com.br/), e costumo a mexer com **Ruby, Kotlin e Java**.
-
-A gente lá mexe com umas tecnologias legais também, como RabitMQ e Kafka, por exemplo ([inclusive, estamos contratando :D](https://wirecardbrasil.workable.com/)).
+Atualmente sou consultora elixir na [Erlang Solutions](https://www.erlang-solutions.com/). Minha linguagem principal hoje é **Elixir** mas durante muito tempo fui rubyzera (e espero que em breve também consiga falar melhor sobre Erlang)
 
 No passado eu também já brinquei um pouco com **Javascripto**, e até hoje tenho um pouco de saudades de **CSS**, mas vida que segue :'(
 
@@ -22,24 +22,28 @@ No passado eu também já brinquei um pouco com **Javascripto**, e até hoje ten
 ***
 ## Minhas palestras
 
-[Git. O que é isso? como usa?](https://speakerdeck.com/rachc/git-que-que-isso-como-usa) - <small>22-out-2019</small>
+O que não precisei desaprender em POO - [vídeo](https://youtu.be/bG8J9I2XPso?t=24646) ou 
+[slide](https://speakerdeck.com/rachc/o-que-nao-precisei-desaprender-em-poo) - <small>28-nov-2020</small>
 
-Palestra dada no Rails girls, mostrando o básico de git (:
+[Git. O que é isso? como usa?](https://speakerdeck.com/rachc/git-que-que-isso-como-usa) - <small>22-out-2019</small>
 
 ***
 ## Rachel por ai
 
-#### Rails Girls (2018)
-Mentora
-
-#### Rails Girls (2019)
-Voluntária, Palestrante e Mentora
+#### Elixir Brazil (2020)
+Palestrante
 
 #### Hacktoberfest na Wirecard (2019)
 Organizadora
 
 #### Minas no Open Source (2019)
 Palestrante
+
+#### Rails Girls (2019)
+Voluntária, Palestrante e Mentora
+
+#### Rails Girls (2018)
+Mentora
 
 ***
 
