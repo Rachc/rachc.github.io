@@ -566,7 +566,7 @@ iex> custo_total.(10,2)
 * No exemplo acima nós usamos `&1 e &2` para lidar com os argumentos que a função iria receber. Ela poderia muito bem ter sido escrita dessa forma:
 
 ```elixir
-iex> custo_total = fun number1, number2 -> number1 * number2 end
+iex> custo_total = fn number1, number2 -> number1 * number2 end
 iex> custo_total.(10,2)
 20
 ```
