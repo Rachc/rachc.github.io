@@ -3,7 +3,7 @@ layout: post
 title: Programando phoenix - Cap 2 - Como funciona por debaixo dos panos?
 date: 2021-05-13 08:00:00 -0300
 image: phoenix.jpg
-tags: Funcional, Elixir
+tags: Funcional, Elixir, Phoenix
 ---
 
 ## Disclaimer
